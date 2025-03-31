@@ -4,7 +4,6 @@
 #Отправьте GET-запрос с параметром userId, равным 1.
 #Распечатайте полученные записи.
 
-
 import requests
 
 url = "https://jsonplaceholder.typicode.com/posts"
@@ -15,5 +14,9 @@ params = {
 
 response = requests.get(url, params=params)
 
-print("Параметры запроса:", params)
-print("JSON-ответ:", response.json())
+if response.status_code == 200:
+    posts = response.json()
+    for post in posts:
+        print(post)
+else:
+    print("Error")

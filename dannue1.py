@@ -1,4 +1,4 @@
-# Отправка данных.
+#Задание 3: Отправка данных
 #Используйте API, которое принимает POST-запросы для создания новых данных
 # (например, https://jsonplaceholder.typicode.com/posts).
 #Создайте словарь с данными для отправки
@@ -7,19 +7,17 @@
 #Распечатайте статус-код и содержимое ответа.
 
 
-
 import requests
 
 url = "https://jsonplaceholder.typicode.com/posts"
 
-params = {
-    'userId': 1,
+data = {
     'title': 'foo',
-    'body': 'bar'
+    'body': 'bar',
+    'userId': 1
 }
 
-response = requests.post(url, json=params)
+response = requests.post(url, json=data)
 
-print(response.status_code)
-
+print (f"Status code: {response.status_code}")
 print(f"ответ - {response.json()}")
